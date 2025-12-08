@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import glob
 import os
 
-PATH = "/Users/maksimkuzin/Documents/МФТИ/1_семестр/информатика/analys/04/Selected/"
+PATH = "/Users/maksimkuzin/Documents/МФТИ/1_семестр/информатика/labs/sorts_lab/analys/04/Selected/"
 files = glob.glob(os.path.join(PATH, "*.csv"))
 
 print("Найденные файлы:", files)
