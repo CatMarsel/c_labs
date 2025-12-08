@@ -1,0 +1,130 @@
+\documentclass[a4paper,12pt]{article} % тип документа
+
+%  Русский язык
+
+\usepackage{wrapfig}
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+\usepackage{indentfirst} %Красная строка
+\usepackage[a4paper,top=1.3cm,bottom=2cm,left=1.5cm,right=1.5cm,marginparwidth=0.75cm]{geometry}
+\usepackage[usenames]{color}
+\usepackage{colortbl}
+\usepackage{float}
+
+\usepackage{graphicx}%картинки
+\usepackage{textcomp}%Номер
+\usepackage{wrapfig}%обтекание текстом теблиц и картинок
+%гиперссылки
+\usepackage{hyperref}
+\usepackage[rgb]{xcolor}
+\hypersetup{     %гипперсылки
+ colorlinks=true, %false:ссылки в рамках
+ urlcolor=blue   %на URL
+ }
+% Заметки
+\usepackage{todonotes}
+% Номера формул(необязятельна, см. по ситуации)
+%\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+% Математика
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} 
+\usepackage{wasysym}
+
+\usepackage{euscript} % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+    {\bf Лабораторная работа № 1}\\
+    Эффективность алгоритмов сортировки    
+\end{center}
+
+\vspace{0.5cm}
+\begin{flushright}
+{\LARGE Автор:\\ 
+Кузин Максим \\ 
+\vspace{0.2cm}
+Б03-503}
+\end{flushright}
+\vspace{3.5cm}
+\end{titlepage}
+
+\tableofcontents
+\section{Введение}
+
+В данной лабораторной работе рассматриваются основные алгоритмы сортировки, их временная сложность и эффективность в зависимости от различных факторов, таких как размер входных данных и их первоначальная упорядоченность. Основное внимание уделяется анализу следующих алгоритмов: сортировка пузырьком, сортировка выбором, сортировка вставками, быстрая сортировка, сортировка кучей и сортировка слиянием.\par
+Целью лабораторной работы является не только понимание теоретических аспектов временной сложности, но и приобретение практических навыков в реализации и тестировании алгоритмов сортировки. Результаты работы помогут лучше осознать, как выбор алгоритма может влиять на эффективность обработки данных в реальных приложениях.
+
+\section{Алгоритмы асимптротики $O(n^2)$}
+\subsection{Демонстрация}
+Для начала рассмотрим алгоритмы, простые в написании.\par
+Для доказательства такой сложности используем логарифмический масштаб:
+$ln(t)=ln(C)+2lnN$
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{00.png}
+    \caption{Доказательство сложности $O(n^2)$}
+\end{figure} 
+Имеем линейный вид графиков, квадратичная зависимость подтверждена.
+
+\subsection{Сравнение оптимизаций}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{01.png}
+    \caption{Демонстрация эффективности оптимизации для квадратичных алгоритмов}
+\end{figure} 
+\section{Алгоритмы асимптротики $O(NlogN)$}
+\subsection{Демонстрация}
+Сравним эффективные алгоритмы сортировки между собой.
+
+Для доказательства такой сложности используем логарифмический масштаб:
+$t=t/NlnN$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{02.png}
+    \caption{Доказательство сложности $O(NlogN)$}
+\end{figure} 
+Имеем линейный вид графиков, логарифмическая зависимость подтверждена.
+
+
+\section{$O(NlogN)$ и $O(N^2)$}
+Для наглядности сравним алгоритмы сортировки разных рангов. Для более объективной картины, отключим оптимизации:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{03_3.png}
+    \caption{Все алгоритмы сортировки}
+\end{figure} 
+\section{Зависимость от начальных данных}
+Используем случайный, возрастающий и убывающий массив чисел:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.99\textwidth]{04_bubble.png}
+\end{figure} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.99\textwidth]{04_comb.png}
+\end{figure} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.99\textwidth]{04_heap.png}
+\end{figure} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.99\textwidth]{04_hoare.png}
+\end{figure} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.99\textwidth]{04_selected.png}
+\end{figure} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.99\textwidth]{04_shaker.png}
+\end{figure} 
+
+\section{Вывод}
+В ходе выполнения лабораторной работы была проведена сравнительная оценка временной эффективности различных алгоритмов сортировки. Полученные результаты подчеркивают важность анализа временной эффективности алгоритмов и выбора языка программирования при разработке программного обеспечения и оптимизации вычислительных процессов.
+\end{document}
